@@ -1,0 +1,58 @@
+<section class="hero is-light is-medium is-bold">
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class="title">
+                Vi er alle utsolgt
+            </h1>
+
+            <h2 class="subtitle">
+                Hvilken dato er du tidligst ledig?
+            </h2>
+            <div class="columns">
+                <div class="column">
+                    <p>
+                        Det er gode tider i Norge, noe som betyr at etterspørselen etter konsulenter er stor.<br>
+                        De fleste av oss er ikke ledige nå, men vi binder oss til oppdrag en gitt tid.
+                        <br>Her kan du registrere når du tidligst i teorien kan ta nye oppdrag.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <br><br>
+    <div class="columns">
+        {{#each people}}
+            <div class="column is-one-fifth">
+                <div class="card">
+                    <div class="card-image is-flex">
+                        <figure class="image is-128x128 profilbilde">
+                            <img src="{{linkedinProfile.pictureUrl}}"
+                                 alt="Placeholder image">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-5">{{linkedinProfile.formattedName}}</p>
+                                <p class="subtitle is-6"><a href="{{linkedinProfile.publicProfileUrl}}"><span class="icon">
+                            <i class="fab fa-linkedin-in"></i></span></a></p>
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            {{#if wishes}}
+                                Jeg liker å jobbe med {{wishes}}. <br>
+                            {{/if}}
+                            Kan være ledig fra <br><strong>{{profileDate}}</strong>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+            </div>
+        {{/each}}
+
+    </div>
+</div>

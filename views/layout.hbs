@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ledig for oppdrag v0.0.1</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+</head>
+<body class="Site">
+
+
+<nav class="navbar is-light">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+  <span class="icon">
+                           <i class="fas fa-calendar-alt"></i>
+                      </span> &nbsp;&nbsp;Ledig for oppdrag
+            </a>
+            <div class="navbar-burger burger" data-target="navMenuColorinfo-example">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-start">
+            </div>
+
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="field is-grouped">
+                        {{#if profile}}
+                            <p class="control navbar-item">Logget på som&nbsp;<a href="/profil">{{profile.linkedinProfile.formattedName}}</a></p>
+                            <p class="control">
+                                <a class="button is-warning"
+                                   href="/logout">
+                      <span class="icon">
+                           <i class="fas fa-sign-out-alt"></i>
+                      </span>
+                                    <span>Logg av</span>
+                                </a>
+                            </p>
+
+                        {{else}}
+                            <p class="control">
+                                <a class="button is-info"
+                                   href="/login">
+                      <span class="icon">
+                           <i class="fab fa-linkedin-in"></i>
+                      </span>
+                                    <span>Logg på med linkedin</span>
+                                </a>
+                            </p>
+
+
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="Site-content">
+{{{body}}}
+</div>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            <strong>Ledig for oppdrag</strong> er laget for moro skyld av <a href="mailto:es@udp.no">Espen Schulstad</a> i 2018.
+        </p>
+    </div>
+</footer>
+
+
+<style>
+
+    .Site {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+    .Site-content {
+        flex: 1;
+    }
+</style>
+
+</body>
+</html>

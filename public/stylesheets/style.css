@@ -1,0 +1,23 @@
+.profilbilde img {
+    border-radius: 50%;
+}
+.profilbilde {
+    margin: 0 auto;
+    margin-top:20px;
+}
+
+.card-content .subtitle .icon {
+    border: 1px #0043ff solid;
+    position: absolute;
+    top:10px;
+    left:10px;
+}
+
+.red {
+    color:red;
+}
+
+label {
+    margin: 5px;
+    vertical-align: middle;
+}

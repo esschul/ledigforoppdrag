@@ -1,0 +1,124 @@
+<section class="section">
+    <div class="container">
+
+        <h1 class="title">Min profil</h1>
+        <form action="/lagre" method="post">
+            <div class="tile is-ancestor">
+                <div class="tile is-vertical is-12">
+                    <div class="tile">
+                        <div class="tile is-parent is-vertical is-4">
+                            <article class="tile is-child notification is-light">
+
+
+                                <div class="content">
+
+                                    <label>Jeg er i teorien ledig fra</label>
+                                    <div class="field">
+                                        <div class="control has-icons-left has-icons-right">
+                                            <input class="input" type="date" name="date" placeholder="Normal"
+                                                   value="{{profile.profileDate}}">
+                                            <span class="icon is-left">
+                            <i class="fas fa-calendar"></i>
+                                    </span>
+                                        </div>
+                                    </div>
+
+
+                                    <label>Jeg liker å jobbe med</label>
+                                    <div class="field">
+                                        <div class="control has-icons-left has-icons-right">
+                                            <input class="input" type="text" name="wishes" placeholder="valgfri"
+                                                   value="{{profile.wishes}}" maxlength="40">
+                                            <span class="icon is-left">
+                            <i class="fas fa-pencil-alt"></i>
+                    </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="tile is-parent">
+                            <article class="tile is-child notification is-light">
+                                <div class="content">
+                                    <div class="content">
+                                        <div class="columns">
+                                            <div class="column is-one-quarter">
+                                                <div class="column">
+                                                    <label><strong>Rolle</strong></label>
+                                                    {{#each profile.roles}}
+                                                        <div><input type="checkbox" name="role_{{id}}" id="role_{{id}}" {{#if checked}}checked{{/if}}><label for="{{id}}">{{name}}</label></div>
+                                                    {{/each}}
+                                                </div>
+                                            </div>
+
+                                            <div class="column is-one-quarter">
+                                                <div class="column">
+                                                    <label><strong>Kodespråk</strong></label>
+                                                    {{#each profile.skills}}
+                                                        <div><input type="checkbox" name="skill_{{id}}" id="skill_{{id}}" {{#if checked}}checked{{/if}}><label for="{{id}}">{{name}}</label></div>
+                                                    {{/each}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                {{#if profile.create}}
+
+                    <p><input class="button is-primary" type="submit" value="Opprett"></p>
+                {{else}}
+                    <p><input class="button is-primary" type="submit" value="Lagre"> <a
+                            href="/vilkar" style="vertical-align: middle">vilkår og
+                        betingelser</a></p>
+
+                {{/if}}
+                <br><br><br><br>
+            </div>
+        </form>
+
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical is-12">
+                <div class="tile">
+                    <div class="tile is-parent is-vertical is-4">
+                        <article class="tile is-child notification is-light">
+                            <div class="content">
+                                <p>Trenger du å bemanne et oppdrag?<br><br> <a href="/oppdrag">Fyll det ut her.</a>
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+
+                    {{#unless profile.create}}
+                        <div class="tile is-parent  is-4">
+                            <article class="tile is-child notification is-light">
+                                <form action="/slett" method="post">
+                                    <div class="content">
+                                        <p>Lyst å slette profilen? Det gjør du her.<br><br>
+                                            <input
+                                                    onclick="return confirm('Sikker?')"
+                                                    class="button is-danger"
+                                                    type="submit"
+                                                    value="Slett min profil">
+                                        </p>
+                                    </div>
+                                </form>
+                            </article>
+                        </div>
+                    {{/unless}}
+                </div>
+            </div>
+        </div>
+
+
+</section>
+
+
+
+

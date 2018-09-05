@@ -1,0 +1,127 @@
+<section class="section">
+    <div class="container">
+        <h1 class="is-size-4">Oppdrag</h1>
+        <p>Har du et oppdrag som trenger bemanning? Det kan du opprette her. En viktig presisjon er at dette
+            <strong>må</strong> være et
+            oppdrag og ikke en fast jobb. <br>For hver gang du
+            finner den du trengte gjennom nettstedet, så donerer du 5000 kr til <a
+                    href="https://legerutengrenser.no/stott-oss/gi-na">Leger uten grenser.</a> Kandidatene vil ta
+            kontakt med deg gjennom linkedin.
+            <br><br></p>
+        <form action="/lagre-oppdrag" method="post">
+
+            <div class=" tile is-ancestor">
+                <div class="tile is-vertical is-12">
+                    <div class="tile">
+                        <div class="tile is-parent is-vertical is-4">
+                            <article class="tile is-child notification is-light">
+                                <label>Selskapet kandidaten skal jobbe for</label>
+                                <div class="field">
+                                    <div class="control has-icons-left has-icons-right">
+                                        <input class="input" type="text" name="company" placeholder="Selskap"
+                                               value="{{company}}">
+                                        <span class="icon is-left">
+                            <i class="fas fa-building"></i>
+                    </span>
+                                    </div>
+                                </div>
+                                <label>Varighet</label>
+                                <div class="field">
+                                    <div class="control has-icons-left has-icons-right">
+                                        <input class="input" type="text" name="duration"
+                                               placeholder="Varighet i mnd"
+                                               value="{{duration}}">
+                                        <span class="icon is-left">
+                            <i class="fas fa-clock"></i>
+                    </span>
+                                    </div>
+                                </div>
+
+                                <label>Søknadsfrist</label>
+                                <div class="field">
+                                    <div class="control has-icons-left has-icons-right">
+                                        <input class="input" type="date" name="date" placeholder="Normal"
+                                               value="{{profile.profileDate}}">
+                                        <span class="icon is-left">
+                            <i class="fas fa-calendar"></i>
+                                    </span>
+                                    </div>
+                                </div>
+
+
+                                <label>Hvor er arbeidsplassen?</label>
+                                <div class="field">
+                                    <div class="control has-icons-left has-icons-right">
+                                        <input class="input" type="text" name="company" placeholder="Lokasjon"
+                                               value="{{location}}">
+                                        <span class="icon is-left">
+                            <i class="fas fa-map"></i>
+                    </span>
+                                    </div>
+                                </div>
+                                <label>Beskrivelse</label>
+                                <div class="field">
+                                    <div class="control has-icons-left has-icons-right">
+                                                <textarea class="textarea"
+                                                          placeholder="Beskrivelse av prosjektet ditt."></textarea>
+                                    </div>
+                                </div>
+
+
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                            <article class="tile is-child notification is-light">
+                                <div class="content">
+
+                                    <p class="subtitle">Velg spesifike egenskaper prosjektet trenger.</p>
+
+                                    <div class="content">
+                                        <div class="columns">
+                                            <div class="column">
+                                                <label>Rolle</label>
+                                                {{#each roles}}
+                                                    <div><input type="checkbox" name="role_{{id}}" id="role_{{id}}" {{#if checked}}checked{{/if}}><label for="{{id}}">{{name}}</label></div>
+                                                {{/each}}
+                                            </div>
+
+                                            <div class="column">
+                                                <label>Kodespråk</label>
+                                                {{#each skills}}
+                                                    <div><input type="checkbox" name="skill_{{id}}" id="skill_{{id}}" {{#if checked}}checked{{/if}}><label for="{{id}}">{{name}}</label></div>
+                                                {{/each}}
+                                            </div>
+
+                                            <div class="column is-one-third">
+                                                <p>Buzz words</p>
+                                                <input class="input" type="text" name="buzz1"
+                                                       placeholder="andre buzz words som 'react'">
+                                                <input class="input" type="text" name="buzz2"
+                                                       placeholder="andre buzz words som 'vue'">
+                                                <input class="input" type="text" name="buzz3"
+                                                       placeholder="andre buzz words som 'scrum'">
+                                                <input class="input" type="text" name="buzz3"
+                                                       placeholder="andre buzz words som 'kanban'">
+                                                <input class="input" type="text" name="buzz4"
+                                                       placeholder="andre buzz words som 'aws'">
+                                                <input class="input" type="text" name="buzz5"
+                                                       placeholder="andre buzz words som 'firestore'">
+                                                <input class="input" type="text" name="buzz6"
+                                                       placeholder="andre buzz words som 'ios/android'">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                    </div>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;<input class="button is-primary" type="submit" value="Opprett utkast">
+                    </p>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</section>
+

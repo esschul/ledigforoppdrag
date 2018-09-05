@@ -1,0 +1,27 @@
+{
+  "name": "ledig-for-oppdrag",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "@google-cloud/firestore": "^0.16.1",
+    "@google-cloud/projectify": "file:tmp",
+    "bulma": "^0.7.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "hbs": "~4.0.1",
+    "http-errors": "~1.6.2",
+    "less-middleware": "^3.0.1",
+    "moment": "^2.22.2",
+    "mongodb": "^3.1.4",
+    "morgan": "~1.9.0",
+    "passport": "^0.4.0",
+    "passport-linkedin-oauth2": "^1.5.0",
+    "request": "^2.88.0",
+    "sanitize-html": "^1.18.4",
+    "uuid": "^3.3.2"
+  }
+}
