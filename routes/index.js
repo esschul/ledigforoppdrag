@@ -18,7 +18,7 @@ const Profile = require("../models/Profile").Profile;
 const linkedinLookupUrl = 'https://api.linkedin.com/v1/people/~:(id,email-address,first-name,last-name,formatted-name,picture-url,public-profile-url)?format=json';
 
 let collection = function (collectionName, callback) {
-    MongoClient.connect(url, {}, function (err, client) {
+    MongoClient.connect(url, { useNewUrlParser: true }, function (err, client) {
         if(err){
             console.log(err)
         } else {
