@@ -7,7 +7,7 @@ const lessMiddleware = require('less-middleware');
 const passport = require("passport");
 const LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 const indexRouter = require('./routes/index');
-const config = require("./config.json");
+const config = require("./resources/config.json");
 
 const app = express();
 
