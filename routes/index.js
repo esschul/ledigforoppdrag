@@ -18,8 +18,11 @@ const Profile = require("../models/Profile").Profile;
 const linkedinLookupUrl = 'https://api.linkedin.com/v1/people/~:(id,email-address,first-name,last-name,formatted-name,picture-url,public-profile-url)?format=json';
 
 let collection = function (collectionName, callback) {
-    MongoClient.connect(url, { useNewUrlParser: true }, function (err, client) {
-        if(err){
+    MongoClient.connect(url, {
+        useNewUrlParser: true,
+        auth: {user: config.mongoDbBruker, password: config.mongoDbPassord}
+    }, function (err, client) {
+        if (err) {
             console.log(err)
         } else {
             let db = client.db(dbName);
@@ -58,7 +61,11 @@ router.get('/', function (req, res, next) {
                         next(err)
                     } else {
                         let profileDto = JSON.parse(body);
-                        res.render('index', {"title": "innlogget", "profile": {"linkedinProfile" : profileDto}, "people": people});
+                        res.render('index', {
+                            "title": "innlogget",
+                            "profile": {"linkedinProfile": profileDto},
+                            "people": people
+                        });
                     }
                 })
             } else {
@@ -202,9 +209,9 @@ router.post('/lagre', function (req, res, next) {
                     profile = new Profile(linkedinProfile, req.body.date, sanitizeHtml(req.body.wishes), skills, roles);
                     profile.id = linkedinProfile.id;
                     collection("people", function (peopleCollection) {
-                        peopleCollection.updateOne({"_id": profile.id}, {$set: profile},{"upsert": true}).then(function(err, results){
+                        peopleCollection.updateOne({"_id": profile.id}, {$set: profile}, {"upsert": true}).then(function (err, results) {
                             res.redirect("/profil")
-                        }).catch(function(err){
+                        }).catch(function (err) {
                             console.log(err);
                         });
                     });
