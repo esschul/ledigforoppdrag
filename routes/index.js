@@ -20,7 +20,7 @@ const linkedinLookupUrl = 'https://api.linkedin.com/v1/people/~:(id,email-addres
 let collection = function (collectionName, callback) {
     MongoClient.connect(url, {
         useNewUrlParser: true,
-        auth: {user: proc.env.MONGODB_USER || config.mongoDbBruker, password: proc.env.MONGODB_PASSWORD || config.mongoDbPassord}
+        auth: {user: process.env.MONGODB_USER || config.mongoDbBruker, password: process.env.MONGODB_PASSWORD || config.mongoDbPassord}
     }, function (err, client) {
         if (err) {
             console.log(err)
