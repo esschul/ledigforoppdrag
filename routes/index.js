@@ -7,8 +7,8 @@ const sanitizeHtml = require('sanitize-html');
 
 const config = require("../resources/config.json");
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://127.0.0.1:27017';
-const dbName = 'ledig';
+const url = config.mongoUrl;
+const dbName = config.mongoDbName;
 const ROLES = require("../models/Roles").ROLES;
 const SKILLS = require("../models/Skills").SKILLS;
 const Assignment = require("../models/Assignment").Assignment;
