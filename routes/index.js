@@ -19,9 +19,13 @@ const linkedinLookupUrl = 'https://api.linkedin.com/v1/people/~:(id,email-addres
 
 let collection = function (collectionName, callback) {
     MongoClient.connect(url, {}, function (err, client) {
-        let db = client.db(dbName);
-        let collection = db.collection(collectionName);
-        callback(collection);
+        if(err){
+            console.log(err)
+        } else {
+            let db = client.db(dbName);
+            let collection = db.collection(collectionName);
+            callback(collection);
+        }
     });
 };
 
